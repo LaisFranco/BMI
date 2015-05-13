@@ -1,14 +1,12 @@
 var BMIService = {
-    
-    calculate : function(height,weight){
-        weight/ (height*height);
-    },
-    
-    description : function(imc){
-        return "to be implemented";
-    }
-    
-    
-    
-    
-}
+	
+	calculate: function(height, weight) {
+		return weight / (height * height);
+	},
+	
+	//TODO to implemented
+	description: function(index) {
+		return "To be implemented";
+	}
+	
+};

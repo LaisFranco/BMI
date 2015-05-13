@@ -1,31 +1,38 @@
-var BMIControler{
-    
-    init: function(){
-        BMIControler.setForm();
-    },
-        
-        setForm: function(){
-            
-            var form = document.getElementById('frm-bmi');
-            form.addEventListener('submit', function(event)){
-             BMIControler.calculate();
-             alert("voce clicou no botao que eu sei!!!");
-            event.preventDefault();// to avoid form submition
-            
-            
-        }};
 
-},
-    calculateBMI: function(){
-        var height = document.getElementById('height').value;
-        var weight = document.getElementById('weight').value;
-        
-    },
-        showResult function(){
-            
-            
-            
-        }
+var BMIController = {
+	
+	init: function() {
+		BMIController.setForm();
+	},
+	
+	setForm: function() {
+		var form = document.getElementById('frm-imc');
+		form.addEventListener('submit', function(event) {
+			BMIController.calculateIMC();
+			event.preventDefault(); //to avoid form submition
+		});
+	},
+	
+	calculateBMI: function() {
+		var heightInput = document.getElementById('height');
+		var weightInput = document.getElementById('weight');
+		
+		var height = parseFloat(heightInput.value);
+		var weight = parseFloat(weightInput.value);
+		
+		var result = 0;
+		
+		if(height && weight) {
+			result = IMCService.calculate(height, weight);
+			IMCController.showResult(result);
+		}
+	},
+	
+	showResult: function(result) {
+		var span = document.getElementById('result');
+		span.innerHTML = result.toFixed(2);
+	}
+
 };
+
 //initialization
-BMIControler.init();
